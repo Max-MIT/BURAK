@@ -10,6 +10,13 @@
 
 */    
 
+/*
+ Traditinal Api
+ Rest Api
+ GrapHQL Api
+ ...
+ */
+
 
 // H2-TASK: 
 
