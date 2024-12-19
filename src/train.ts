@@ -16,38 +16,51 @@
  GrapHQL Api
  ...
  */
+//  J-TASK: 
+//  Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+//  MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+ 
 
-//  I-TASK:
+ function findLongestWordAlt(sentence: string): string {
+    // Stringни бўшлиқ бўйича бўлиб, reduce орқали энг узун сўзни топамиз
+    return sentence.split(" ").reduce((longest, current) =>
+        current.length > longest.length ? current : longest, "");
+}
+
+// Мисол учун:
+console.log(findLongestWordAlt("I come from Uzbekistan")); // Натижа: "Uzbekistan"
+
+ //  I-TASK:
 
 //  Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
 //  MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
  
- function majorityElement(arr: number[]): number | null {
-  if (arr.length === 0) return null;
+//  function majorityElement(arr: number[]): number | null {
+//   if (arr.length === 0) return null;
 
-  const countMap: { [key: number]: number } = {};
+//   const countMap: { [key: number]: number } = {};
 
-  // Elementlarning chastotalarini hisoblaymiz
-  for (const num of arr) {
-      countMap[num] = (countMap[num] || 0) + 1;
-  }
+//   // Elementlarning chastotalarini hisoblaymiz
+//   for (const num of arr) {
+//       countMap[num] = (countMap[num] || 0) + 1;
+//   }
 
-  // Eng ko'p uchraydigan elementni topamiz
-  let maxCount = 0;
-  let mostFrequent: number | null = null;
+//   // Eng ko'p uchraydigan elementni topamiz
+//   let maxCount = 0;
+//   let mostFrequent: number | null = null;
 
-  for (const key in countMap) {
-      if (countMap[key] > maxCount) {
-          maxCount = countMap[key];
-          mostFrequent = parseInt(key, 10);
-      }
-  }
+//   for (const key in countMap) {
+//       if (countMap[key] > maxCount) {
+//           maxCount = countMap[key];
+//           mostFrequent = parseInt(key, 10);
+//       }
+//   }
 
-  return mostFrequent;
-}
+//   return mostFrequent;
+// }
 
-// Misol uchun:
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // Natija: 4
+// // Misol uchun:
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // Natija: 4
 
 
 
