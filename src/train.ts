@@ -21,20 +21,47 @@
 Traditional Frontend Developent (FD) => BSSR (BURAK Admin) => EJS
 Modern Frontend Developent (FD)      => SPA  (Users application) => REACT 
  */
+//==========================================================================//
 
+// K-TASK: 
+
+// Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+// MASALAN: countVowels("string") return 1;
+
+function countVowels(str: string): number {
+     // Unli harflar ro'yxati
+     const vowels = "aeiouAEIOU";
+     let count = 0;
+ 
+     // Stringni harfma-harf tekshiramiz
+     for (const char of str) {
+         if (vowels.includes(char)) {
+             count++;
+         }
+     }
+ 
+     return count;
+ }
+ 
+ // Misol uchun:
+ console.log(countVowels("string")); // Natija: 1
+ console.log(countVowels("Hello World")); // Natija: 3
+ 
+//==========================================================================//
 //  J-TASK: 
 //  Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
 //  MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
  
 
- function findLongestWordAlt(sentence: string): string {
-    // Stringни бўшлиқ бўйича бўлиб, reduce орқали энг узун сўзни топамиз
-    return sentence.split(" ").reduce((longest, current) =>
-        current.length > longest.length ? current : longest, "");
-}
+//  function findLongestWordAlt(sentence: string): string {
+//     // Stringни бўшлиқ бўйича бўлиб, reduce орқали энг узун сўзни топамиз
+//     return sentence.split(" ").reduce((longest, current) =>
+//         current.length > longest.length ? current : longest, "");
+// }
 
-// Мисол учун:
-console.log(findLongestWordAlt("I come from Uzbekistan")); // Натижа: "Uzbekistan"
+// // Мисол учун:
+// console.log(findLongestWordAlt("I come from Uzbekistan")); // Натижа: "Uzbekistan"
+//==========================================================================//
 
  //  I-TASK:
 
@@ -67,6 +94,7 @@ console.log(findLongestWordAlt("I come from Uzbekistan")); // Натижа: "Uzb
 
 // // Misol uchun:
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // Natija: 4
+//==========================================================================//
 
 
 
@@ -98,4 +126,4 @@ console.log(findLongestWordAlt("I come from Uzbekistan")); // Натижа: "Uzb
 
 // // Misol:
 // console.log(getPositive([1, -4, 2])); // Natija: "12"
-
+//==========================================================================//
