@@ -23,29 +23,59 @@ Modern Frontend Developent (FD)      => SPA  (Users application) => REACT
  */
 //==========================================================================//
 
+// L-TASK: 
+
+// Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+// MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
+ function reverseSentence(sentence: string): string {
+    /**
+     * Takes a string and reverses each word in the string without changing the order of the words.
+     *
+     * @param sentence - Input string.
+     * @returns String with each word reversed and order preserved.
+     */
+    const words = sentence.split(" ");
+    let reversedWords: string[] = [];
+
+    for (let i = 0; i < words.length; i++) {
+        let reversedWord = "";
+        for (let j = words[i].length - 1; j >= 0; j--) {
+            reversedWord += words[i][j];
+        }
+        reversedWords.push(reversedWord);
+    }
+
+    return reversedWords.join(" ");
+}
+
+// Example usage
+const result = reverseSentence("we like coding");
+console.log(result);  // Output: "ew ekil gnidoc"
+
+
 // K-TASK: 
 
 // Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 // MASALAN: countVowels("string") return 1;
 
-function countVowels(str: string): number {
-     // Unli harflar ro'yxati
-     const vowels = "aeiouAEIOU";
-     let count = 0;
+// function countVowels(str: string): number {
+//      // Unli harflar ro'yxati
+//      const vowels = "aeiouAEIOU";
+//      let count = 0;
  
-     // Stringni harfma-harf tekshiramiz
-     for (const char of str) {
-         if (vowels.includes(char)) {
-             count++;
-         }
-     }
+//      // Stringni harfma-harf tekshiramiz
+//      for (const char of str) {
+//          if (vowels.includes(char)) {
+//              count++;
+//          }
+//      }
  
-     return count;
- }
+//      return count;
+//  }
  
- // Misol uchun:
- console.log(countVowels("string")); // Natija: 1
- console.log(countVowels("Hello World")); // Natija: 3
+//  // Misol uchun:
+//  console.log(countVowels("string")); // Natija: 1
+//  console.log(countVowels("Hello World")); // Natija: 3
  
 //==========================================================================//
 //  J-TASK: 
