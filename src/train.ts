@@ -127,3 +127,8 @@ function countVowels(str: string): number {
 // // Misol:
 // console.log(getPositive([1, -4, 2])); // Natija: "12"
 //==========================================================================//
+
+/*
+  request join
+  self destroy
+*/
