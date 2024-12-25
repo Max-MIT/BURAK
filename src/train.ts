@@ -5,22 +5,33 @@
      class => PASCAL                       MemberService 
      folder, file => KEBAB
      css => SNAKE                           button_style
-
 - Error handling
 
 */    
 
-/*
+/* Request:
  Traditinal Api
  Rest Api
  GrapHQL Api
  ...
  */
 
-/* 
+
+/* Frontend Development:
 Traditional Frontend Developent (FD) => BSSR (BURAK Admin) => EJS
 Modern Frontend Developent (FD)      => SPA  (Users application) => REACT 
- */
+*/
+
+/* Cookies:
+request jola
+self destroy
+*/ 
+
+/* Validations:
+Frontend validation
+Backend validation
+Database validation
+*/
 //==========================================================================//
 
 // L-TASK: 
