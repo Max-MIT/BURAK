@@ -8,7 +8,7 @@ const productService = new ProductServise();
 const productController: T = {};
 productController.getAllProducts = async (req: Request, res: Response) => {
     try {
-      console.log("getAllProductsp"); 
+      console.log("getAllProducts"); 
       res.render("products");
       } catch (err) {
         console.log("Error, getAllProducts", err);
