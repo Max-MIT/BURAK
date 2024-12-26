@@ -38,31 +38,43 @@ Database validation
 
 // Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 // MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
- function reverseSentence(sentence: string): string {
-    /**
-     * Takes a string and reverses each word in the string without changing the order of the words.
-     *
-     * @param sentence - Input string.
-     * @returns String with each word reversed and order preserved.
-     */
-    const words = sentence.split(" ");
-    let reversedWords: string[] = [];
+//  function reverseSentence(sentence: string): string {
+//     /**
+//      * Takes a string and reverses each word in the string without changing the order of the words.
+//      *
+//      * @param sentence - Input string.
+//      * @returns String with each word reversed and order preserved.
+//      */
+//     const words = sentence.split(" ");
+//     let reversedWords: string[] = [];
 
-    for (let i = 0; i < words.length; i++) {
-        let reversedWord = "";
-        for (let j = words[i].length - 1; j >= 0; j--) {
-            reversedWord += words[i][j];
-        }
-        reversedWords.push(reversedWord);
-    }
+//     for (let i = 0; i < words.length; i++) {
+//         let reversedWord = "";
+//         for (let j = words[i].length - 1; j >= 0; j--) {
+//             reversedWord += words[i][j];
+//         }
+//         reversedWords.push(reversedWord);
+//     }
 
-    return reversedWords.join(" ");
+//     return reversedWords.join(" ");
+// }
+
+// // Example usage
+// const result = reverseSentence("we like coding");
+// console.log(result);  // Output: "ew ekil gnidoc"
+
+// M-TASK: 
+
+// Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+// MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+
+function getSquareNumbers(numbers: number[]): { number: number, square: number }[] {
+    return numbers.map(num => ({ number: num, square: num ** 2 }));
 }
 
-// Example usage
-const result = reverseSentence("we like coding");
-console.log(result);  // Output: "ew ekil gnidoc"
-
+// Misol uchun:
+const result = getSquareNumbers([1, 2, 3]);
+console.log(result);
 
 // K-TASK: 
 
