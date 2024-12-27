@@ -27,10 +27,11 @@ request jola
 self destroy
 */ 
 
-/* Validations:
-Frontend validation
-Backend validation
-Database validation
+/* VALIDATION:
+    1) CLIENT VALIDATION (Frontend) 
+    2) DTO VALIDATION (Pipe)
+    3) SERVER VALIDATION (Backend)
+    4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
 
