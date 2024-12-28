@@ -1,7 +1,7 @@
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { 
-    Produc, 
+    Product, 
     ProductInput, 
     ProductUpdateInput 
 } from "../libs/types/products";
@@ -17,8 +17,15 @@ class ProductServise {
     
     /** SPA */
      /** SSR */
+     
+     public async getAllProducts(): Promise<Product[]> {
+       const result = await this.productModel.find().exec();
+       if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+       
+       return result;
+     }
 
-public async creatNewProduct(input: ProductInput): Promise<Produc> {
+public async creatNewProduct(input: ProductInput): Promise<Product> {
     try {
         return await this.productModel.create(input);
     } catch (err) {
@@ -30,7 +37,7 @@ public async creatNewProduct(input: ProductInput): Promise<Produc> {
 public async updateChosenProduct(
     id: string,
     input: ProductUpdateInput
-): Promise<Produc> {
+): Promise<Product> {
    id = shapeIntoMongooseObjectId(id);
    const result = await this.productModel
    .findOneAndUpdate({ _id: id }, input, { new: true })

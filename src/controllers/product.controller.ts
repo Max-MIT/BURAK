@@ -15,7 +15,9 @@ const productController: T = {};
 productController.getAllProducts = async (req: Request, res: Response) => {
     try {
       console.log("getAllProducts"); 
-      res.render("products");
+      const data = await productService.getAllProducts();
+
+      res.render("products", { products: data });
       } catch (err) {
         console.log("Error, getAllProducts", err);
         if(err instanceof Errors) res.status(err.code).json(err);
@@ -32,7 +34,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
         if (!req.files?.length)
             throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
-        const data: ProductInput =req.body;
+        const data: ProductInput = req.body;
         data.productImages = req.files?.map(ele => {
             return ele.path.replace(/\\/g, "/");
         });
