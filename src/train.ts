@@ -34,6 +34,34 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// N-TASK: 
+
+// Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+
+function palindromCheck(word: string): boolean {
+  // Stringni kichik harflarga o‘tkazish va teskari versiyasini solishtirish
+  word = word.toLowerCase(); // Katta va kichik harflarni farqsiz qilish
+  return word === word.split('').reverse().join(''); // Teskari stringni solishtirish
+}
+
+// Misollar
+console.log(palindromCheck("dad")); // true
+console.log(palindromCheck("son")); // false
+
+
+// M-TASK: 
+
+// Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+// MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+
+// function getSquareNumbers(numbers: number[]): { number: number, square: number }[] {
+//     return numbers.map(num => ({ number: num, square: num ** 2 }));
+// }
+
+// // Misol uchun:
+// const result = getSquareNumbers([1, 2, 3]);
+// console.log(result);
 
 // L-TASK: 
 
@@ -64,18 +92,6 @@ self destroy
 // const result = reverseSentence("we like coding");
 // console.log(result);  // Output: "ew ekil gnidoc"
 
-// M-TASK: 
-
-// Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
-// MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
-
-function getSquareNumbers(numbers: number[]): { number: number, square: number }[] {
-    return numbers.map(num => ({ number: num, square: num ** 2 }));
-}
-
-// Misol uchun:
-const result = getSquareNumbers([1, 2, 3]);
-console.log(result);
 
 // K-TASK: 
 
