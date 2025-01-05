@@ -34,20 +34,41 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// O-TASK:
+
+// Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+function calculateSumOfNumbers(array: any[]): number {
+  // Faqat sonlarni yig'indiga qo'shamiz
+  return array.reduce((sum: number, value: any) => {
+    // Agar qiymat son bo'lsa, uni yig'indiga qo'shamiz
+    if (typeof value === "number") {
+      return sum + value;
+    }
+    return sum;
+  }, 0); // Dastlabki yig'indi 0
+}
+
+// Misol uchun foydalanish
+const result = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
+console.log(result); // Natija: 45
+
+
 // N-TASK: 
 
 // Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
 // MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
 
-function palindromCheck(word: string): boolean {
-  // Stringni kichik harflarga o‘tkazish va teskari versiyasini solishtirish
-  word = word.toLowerCase(); // Katta va kichik harflarni farqsiz qilish
-  return word === word.split('').reverse().join(''); // Teskari stringni solishtirish
-}
+// function palindromCheck(word: string): boolean {
+//   // Stringni kichik harflarga o‘tkazish va teskari versiyasini solishtirish
+//   word = word.toLowerCase(); // Katta va kichik harflarni farqsiz qilish
+//   return word === word.split('').reverse().join(''); // Teskari stringni solishtirish
+// }
 
-// Misollar
-console.log(palindromCheck("dad")); // true
-console.log(palindromCheck("son")); // false
+// // Misollar
+// console.log(palindromCheck("dad")); // true
+// console.log(palindromCheck("son")); // false
 
 
 // M-TASK: 
