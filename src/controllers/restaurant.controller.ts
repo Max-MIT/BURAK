@@ -44,6 +44,7 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup:");
+    console.log("req.body:", req.body);
     const file = req.file;
     if(!file)
     throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
@@ -60,9 +61,9 @@ restaurantController.processSignup = async (
     } catch (err) {
       console.log("Error, processSignup:", err);
       const message =
-       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG
+       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
       res.send(
-        `<script> alert("${message}"); window.location.replace('admin/signup') </script>`
+        `<script> alert("${message}"); window.location.replace('/admin/signup') </script>`
       );
   }
 };
@@ -73,6 +74,7 @@ restaurantController.processLogin = async (
 ) => {
   try {
     console.log("processLogin");
+    console.log("req.body:", req.body);
 
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
@@ -81,12 +83,12 @@ restaurantController.processLogin = async (
       req.session.save(function () {
         res.redirect("/admin/product/all");
       });
-      } catch(err) {
+      } catch (err) {
       console.log("Error, processLogin:", err);
       const message =
        err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
       res.send(
-        `<script> alert("${message}"); window.location.replace('admin/login') </script>`
+        `<script> alert("${message}"); window.location.replace('/admin/login') </script>`
       );
   }
 };
