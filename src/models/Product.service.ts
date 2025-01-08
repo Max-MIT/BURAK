@@ -14,8 +14,8 @@ class ProductServise {
         this.productModel = ProductModel;
     }
      
-    
     /** SPA */
+
      /** SSR */
      
      public async getAllProducts(): Promise<Product[]> {
@@ -25,7 +25,7 @@ class ProductServise {
        return result;
      }
 
-public async creatNewProduct(input: ProductInput): Promise<Product> {
+public async createNewProduct(input: ProductInput): Promise<Product> {
     try {
         return await this.productModel.create(input);
     } catch (err) {
