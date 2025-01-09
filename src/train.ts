@@ -34,6 +34,32 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// P-TASK:
+
+// Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+function objectToArray<T extends { [key: string]: any }>(obj: T): [string, T[keyof T]][] {
+  const result: [string, T[keyof T]][] = [];
+  for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+          result.push([key, obj[key]]);
+      }
+  }
+  return result;
+}
+
+// Misol
+const resultObjectToArray = objectToArray({ a: 10, b: 20 });
+console.log(resultObjectToArray); // [['a', 10], ['b', 20]]
+
+// Yana bir misol
+const anotherResult = objectToArray({ name: "John", age: 30 });
+console.log(anotherResult); // [['name', 'John'], ['age', 30]]
+
+
+// ==================================================================================
+
 // O-TASK:
 
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
@@ -51,8 +77,8 @@ function calculateSumOfNumbers(array: any[]): number {
 }
 
 // Misol uchun foydalanish
-const result = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
-console.log(result); // Natija: 45
+const resultCalculateSum = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
+console.log(resultCalculateSum); // Natija: 45
 
 
 // N-TASK: 
