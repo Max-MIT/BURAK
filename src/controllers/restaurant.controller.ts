@@ -75,10 +75,8 @@ restaurantController.processLogin = async (
   try {
     console.log("processLogin");
     console.log("req.body:", req.body);
-
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
-
      req.session.member = result;
       req.session.save(function () {
         res.redirect("/admin/product/all");
@@ -109,6 +107,7 @@ restaurantController.getUser = async (req: Request, res: Response) => {
   try {
     console.log("getUser");
     const result = await memberService.getUsers();
+    
 
     res.render("users", { users: result });
   } catch (err) {
