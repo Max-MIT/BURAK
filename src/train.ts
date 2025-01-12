@@ -34,28 +34,43 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+
+// Q-TASK:
+
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+
+function hasProperty<T extends object>(obj: T, prop: string): boolean {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+// Примеры использования:
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+
+
 // P-TASK:
 
 // Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
 // MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-function objectToArray<T extends { [key: string]: any }>(obj: T): [string, T[keyof T]][] {
-  const result: [string, T[keyof T]][] = [];
-  for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-          result.push([key, obj[key]]);
-      }
-  }
-  return result;
-}
+// function objectToArray<T extends { [key: string]: any }>(obj: T): [string, T[keyof T]][] {
+//   const result: [string, T[keyof T]][] = [];
+//   for (const key in obj) {
+//       if (obj.hasOwnProperty(key)) {
+//           result.push([key, obj[key]]);
+//       }
+//   }
+//   return result;
+// }
 
-// Misol
-const resultObjectToArray = objectToArray({ a: 10, b: 20 });
-console.log(resultObjectToArray); // [['a', 10], ['b', 20]]
+// // Misol
+// const resultObjectToArray = objectToArray({ a: 10, b: 20 });
+// console.log(resultObjectToArray); // [['a', 10], ['b', 20]]
 
-// Yana bir misol
-const anotherResult = objectToArray({ name: "John", age: 30 });
-console.log(anotherResult); // [['name', 'John'], ['age', 30]]
+// // Yana bir misol
+// const anotherResult = objectToArray({ name: "John", age: 30 });
+// console.log(anotherResult); // [['name', 'John'], ['age', 30]]
 
 
 // ==================================================================================
@@ -65,20 +80,20 @@ console.log(anotherResult); // [['name', 'John'], ['age', 30]]
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
 // MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
-function calculateSumOfNumbers(array: any[]): number {
-  // Faqat sonlarni yig'indiga qo'shamiz
-  return array.reduce((sum: number, value: any) => {
-    // Agar qiymat son bo'lsa, uni yig'indiga qo'shamiz
-    if (typeof value === "number") {
-      return sum + value;
-    }
-    return sum;
-  }, 0); // Dastlabki yig'indi 0
-}
+// function calculateSumOfNumbers(array: any[]): number {
+//   // Faqat sonlarni yig'indiga qo'shamiz
+//   return array.reduce((sum: number, value: any) => {
+//     // Agar qiymat son bo'lsa, uni yig'indiga qo'shamiz
+//     if (typeof value === "number") {
+//       return sum + value;
+//     }
+//     return sum;
+//   }, 0); // Dastlabki yig'indi 0
+// }
 
-// Misol uchun foydalanish
-const resultCalculateSum = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
-console.log(resultCalculateSum); // Natija: 45
+// // Misol uchun foydalanish
+// const resultCalculateSum = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
+// console.log(resultCalculateSum); // Natija: 45
 
 
 // N-TASK: 
