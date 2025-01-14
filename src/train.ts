@@ -35,18 +35,54 @@ self destroy
 */
 //==========================================================================//
 
+
+// TASK R
+
+// Shunday function yozing, u string parametrga ega bo'lsin.
+// Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+// string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+// MASALAN: calculate("1 + 3"); return 4;
+// 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+
+
+function calculate(expression: string): number {
+  const parts = expression.split(' ').filter(Boolean);
+  const num1 = parseFloat(parts[0]);
+  const operator = parts[1];
+  const num2 = parseFloat(parts[2]);
+
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      return num2 !== 0 ? num1 / num2 : NaN;
+    default:
+      throw new Error('Invalid operator');
+  }
+}
+
+console.log(calculate("1 + 3"));
+console.log(calculate("10 - 2"));
+console.log(calculate("4 * 5"));
+console.log(calculate("20 / 4"));
+
 // Q-TASK:
 
 // Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
 // MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
 
-function hasProperty<T extends object>(obj: T, prop: string): boolean {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
+// function hasProperty<T extends object>(obj: T, prop: string): boolean {
+//   return Object.prototype.hasOwnProperty.call(obj, prop);
+// }
 
-// Примеры использования:
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+// // Примеры использования:
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
 
 
 // P-TASK:
