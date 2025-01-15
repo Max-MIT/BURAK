@@ -34,6 +34,30 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// S-TASK:
+
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+// MASALAN: missingNumber([3, 0, 1]) return 2
+
+
+function missingNumber(nums: number[]): number {
+  // Вычисляем длину массива
+  const n = nums.length;
+
+  // Вычисляем ожидаемую сумму чисел от 0 до n
+  const totalSum = (n * (n + 1)) / 2;
+
+  // Суммируем все элементы массива
+  const arraySum = nums.reduce((sum, num) => sum + num, 0);
+
+  // Пропущенное число — разница между полной суммой и суммой элементов массива
+  return totalSum - arraySum;
+}
+
+// Пример использования
+const result = missingNumber([3, 0, 1]); // Ожидается 2
+console.log(result); // Вывод: 2
+
 
 
 // TASK R
@@ -46,30 +70,30 @@ self destroy
 // 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
 
 
-function calculate(expression: string): number {
-  const parts = expression.split(' ').filter(Boolean);
-  const num1 = parseFloat(parts[0]);
-  const operator = parts[1];
-  const num2 = parseFloat(parts[2]);
+// function calculate(expression: string): number {
+//   const parts = expression.split(' ').filter(Boolean);
+//   const num1 = parseFloat(parts[0]);
+//   const operator = parts[1];
+//   const num2 = parseFloat(parts[2]);
 
-  switch (operator) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    case '*':
-      return num1 * num2;
-    case '/':
-      return num2 !== 0 ? num1 / num2 : NaN;
-    default:
-      throw new Error('Invalid operator');
-  }
-}
+//   switch (operator) {
+//     case '+':
+//       return num1 + num2;
+//     case '-':
+//       return num1 - num2;
+//     case '*':
+//       return num1 * num2;
+//     case '/':
+//       return num2 !== 0 ? num1 / num2 : NaN;
+//     default:
+//       throw new Error('Invalid operator');
+//   }
+// }
 
-console.log(calculate("1 + 3"));
-console.log(calculate("10 - 2"));
-console.log(calculate("4 * 5"));
-console.log(calculate("20 / 4"));
+// console.log(calculate("1 + 3"));
+// console.log(calculate("10 - 2"));
+// console.log(calculate("4 * 5"));
+// console.log(calculate("20 / 4"));
 
 // Q-TASK:
 
