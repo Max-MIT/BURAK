@@ -34,29 +34,58 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// TASK T
+
+// Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
+// Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+
+// MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
+
+// Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+    // Agar birinchi massiv bo'sh bo'lsa, ikkinchi massivni qaytaramiz
+    if (arr1.length === 0) return arr2;
+    // Agar ikkinchi massiv bo'sh bo'lsa, birinchi massivni qaytaramiz
+    if (arr2.length === 0) return arr1;
+
+    // Solishtiramiz va eng kichik elementni qaytarib, rekursiyani davom ettiramiz
+    if (arr1[0] < arr2[0]) {
+        return [arr1[0], ...mergeSortedArrays(arr1.slice(1), arr2)];
+    } else {
+        return [arr2[0], ...mergeSortedArrays(arr1, arr2.slice(1))];
+    }
+}
+
+// Misol
+const result = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
+console.log(result); // [0, 3, 4, 4, 6, 30, 31]
+
+
+// ===============================================================================================
 // S-TASK:
 
 // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
 // MASALAN: missingNumber([3, 0, 1]) return 2
 
 
-function missingNumber(nums: number[]): number {
-  // Вычисляем длину массива
-  const n = nums.length;
+// function missingNumber(nums: number[]): number {
+//   // Вычисляем длину массива
+//   const n = nums.length;
 
-  // Вычисляем ожидаемую сумму чисел от 0 до n
-  const totalSum = (n * (n + 1)) / 2;
+//   // Вычисляем ожидаемую сумму чисел от 0 до n
+//   const totalSum = (n * (n + 1)) / 2;
 
-  // Суммируем все элементы массива
-  const arraySum = nums.reduce((sum, num) => sum + num, 0);
+//   // Суммируем все элементы массива
+//   const arraySum = nums.reduce((sum, num) => sum + num, 0);
 
-  // Пропущенное число — разница между полной суммой и суммой элементов массива
-  return totalSum - arraySum;
-}
+//   // Пропущенное число — разница между полной суммой и суммой элементов массива
+//   return totalSum - arraySum;
+// }
 
-// Пример использования
-const result = missingNumber([3, 0, 1]); // Ожидается 2
-console.log(result); // Вывод: 2
+// // Пример использования
+// const result = missingNumber([3, 0, 1]); // Ожидается 2
+// console.log(result); // Вывод: 2
 
 
 
