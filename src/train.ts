@@ -34,6 +34,25 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+
+// U-TASK:
+
+// Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+function sumOdds(number: number): number {
+    let count = 0;
+    for (let i = 1; i <= number; i += 2) { // 1-dan boshlanadi va faqat toq sonlarni qamrab oladi
+        count++;
+    }
+    return count;
+}
+
+// Masalan:
+console.log(sumOdds(9));  // Natija: 4
+console.log(sumOdds(11)); // Natija: 5
+
+// ========================================================================//
 // TASK T
 
 // Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
@@ -43,23 +62,23 @@ self destroy
 
 // Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-    // Agar birinchi massiv bo'sh bo'lsa, ikkinchi massivni qaytaramiz
-    if (arr1.length === 0) return arr2;
-    // Agar ikkinchi massiv bo'sh bo'lsa, birinchi massivni qaytaramiz
-    if (arr2.length === 0) return arr1;
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//     // Agar birinchi massiv bo'sh bo'lsa, ikkinchi massivni qaytaramiz
+//     if (arr1.length === 0) return arr2;
+//     // Agar ikkinchi massiv bo'sh bo'lsa, birinchi massivni qaytaramiz
+//     if (arr2.length === 0) return arr1;
 
-    // Solishtiramiz va eng kichik elementni qaytarib, rekursiyani davom ettiramiz
-    if (arr1[0] < arr2[0]) {
-        return [arr1[0], ...mergeSortedArrays(arr1.slice(1), arr2)];
-    } else {
-        return [arr2[0], ...mergeSortedArrays(arr1, arr2.slice(1))];
-    }
-}
+//     // Solishtiramiz va eng kichik elementni qaytarib, rekursiyani davom ettiramiz
+//     if (arr1[0] < arr2[0]) {
+//         return [arr1[0], ...mergeSortedArrays(arr1.slice(1), arr2)];
+//     } else {
+//         return [arr2[0], ...mergeSortedArrays(arr1, arr2.slice(1))];
+//     }
+// }
 
-// Misol
-const result = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
-console.log(result); // [0, 3, 4, 4, 6, 30, 31]
+// // Misol
+// const result = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
+// console.log(result); // [0, 3, 4, 4, 6, 30, 31]
 
 
 // ===============================================================================================
