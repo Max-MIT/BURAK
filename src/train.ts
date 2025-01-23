@@ -34,23 +34,55 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// TASK V
 
+// Shunday function yozing, uni string parametri bo'lsin.
+// Va bu function stringdagi har bir harfni o'zi bilan
+// necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+  
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+// Yuqoridagi misolda, 'hello' so'zi tarkibida
+// qatnashgan harflar necha marotaba takrorlangini bilan
+// object sifatida qaytarilmoqda.
+
+function countChars(input: string): Record<string, number> {
+    const charCount: Record<string, number> = {};
+  
+    for (const char of input) {
+      if (char in charCount) {
+        charCount[char]++;
+      } else {
+        charCount[char] = 1;
+      }
+    }
+  
+    return charCount;
+  }
+  
+  // Test qilish
+  const result = countChars("hello");
+  console.log(result); // Natija: { h: 1, e: 1, l: 2, o: 1 }
+  
+
+
+// =============================================================================================================
 // U-TASK:
 
 // Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
 // MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
 
-function sumOdds(number: number): number {
-    let count = 0;
-    for (let i = 1; i <= number; i += 2) { // 1-dan boshlanadi va faqat toq sonlarni qamrab oladi
-        count++;
-    }
-    return count;
-}
+// function sumOdds(number: number): number {
+//     let count = 0;
+//     for (let i = 1; i <= number; i += 2) { // 1-dan boshlanadi va faqat toq sonlarni qamrab oladi
+//         count++;
+//     }
+//     return count;
+// }
 
-// Masalan:
-console.log(sumOdds(9));  // Natija: 4
-console.log(sumOdds(11)); // Natija: 5
+// // Masalan:
+// console.log(sumOdds(9));  // Natija: 4
+// console.log(sumOdds(11)); // Natija: 5
 
 // ========================================================================//
 // TASK T
