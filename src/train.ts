@@ -34,6 +34,28 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+
+// W-TASK:
+
+// Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+// MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+
+function chunkArray<T>(array: T[], chunkSize: number): T[][] {
+  const result: T[][] = [];
+
+  for (let i = 0; i < array.length; i += chunkSize) {
+    result.push(array.slice(i, i + chunkSize));
+  }
+
+  return result;
+}
+
+// Test qilish
+const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+console.log(result); // Natija: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+
+
+// ================================================================================
 // TASK V
 
 // Shunday function yozing, uni string parametri bo'lsin.
@@ -46,23 +68,23 @@ self destroy
 // qatnashgan harflar necha marotaba takrorlangini bilan
 // object sifatida qaytarilmoqda.
 
-function countChars(input: string): Record<string, number> {
-    const charCount: Record<string, number> = {};
+// function countChars(input: string): Record<string, number> {
+//     const charCount: Record<string, number> = {};
   
-    for (const char of input) {
-      if (char in charCount) {
-        charCount[char]++;
-      } else {
-        charCount[char] = 1;
-      }
-    }
+//     for (const char of input) {
+//       if (char in charCount) {
+//         charCount[char]++;
+//       } else {
+//         charCount[char] = 1;
+//       }
+//     }
   
-    return charCount;
-  }
+//     return charCount;
+//   }
   
-  // Test qilish
-  const result = countChars("hello");
-  console.log(result); // Natija: { h: 1, e: 1, l: 2, o: 1 }
+//   // Test qilish
+//   const result = countChars("hello");
+//   console.log(result); // Natija: { h: 1, e: 1, l: 2, o: 1 }
   
 
 
