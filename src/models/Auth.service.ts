@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 
 class AuthService {
     private readonly secretToken;
+    
     constructor() {
         this.secretToken = process.env.SECRET_TOKEN as string;
     }
