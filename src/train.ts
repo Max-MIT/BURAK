@@ -34,25 +34,61 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// X-TASK:
 
+//  Shunday function yozing, uni object va string parapetrlari bolsin. Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
+//  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+function countOccurrences(obj: { [key: string]: any }, key: string): number {
+  let count = 0; // Буюм ичидаги қайтарилган сўзларни санаш учун.
+
+  // Рекурсив қидирув функцияси
+  function recursiveSearch(currentObj: { [key: string]: any }): void {
+      for (const prop in currentObj) {
+          if (prop === key) {
+              count++; // Агар калит топилса, саноқни ошир.
+          }
+          if (typeof currentObj[prop] === 'object' && currentObj[prop] !== null) {
+              recursiveSearch(currentObj[prop]); // Агар қиймат объект бўлса, яна қидирувга кир.
+          }
+      }
+  }
+
+  recursiveSearch(obj); // Бошланғич объектдан қидирувни бошлаш.
+  return count; // Умумий саноқни қайтариш.
+}
+
+// Мисол учун:
+const obj = {
+  model: 'Bugatti',
+  steer: {
+      model: 'HANKOOK',
+      size: 30
+  }
+};
+
+console.log(countOccurrences(obj, 'model')); // Натижа: 2
+
+
+// ====================================================================================
 // W-TASK:
 
 // Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
 // MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
 
-function chunkArray<T>(array: T[], chunkSize: number): T[][] {
-  const result: T[][] = [];
+// function chunkArray<T>(array: T[], chunkSize: number): T[][] {
+//   const result: T[][] = [];
 
-  for (let i = 0; i < array.length; i += chunkSize) {
-    result.push(array.slice(i, i + chunkSize));
-  }
+//   for (let i = 0; i < array.length; i += chunkSize) {
+//     result.push(array.slice(i, i + chunkSize));
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-// Test qilish
-const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
-console.log(result); // Natija: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+// // Test qilish
+// const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+// console.log(result); // Natija: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
 
 
 // ================================================================================
