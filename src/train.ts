@@ -34,40 +34,54 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// Y-TASK:
+
+//  Shunday function yozing, uni 2 ta array parapetri bolsin. Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
+//  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+function findIntersection<T>(array1: T[], array2: T[]): T[] {
+  return array1.filter(value => array2.includes(value));
+}
+
+// Example usage:
+const result = findIntersection([1, 2, 3], [3, 2, 0]);
+console.log(result); // Output: [2, 3]
+
+// ==========================================================================
 // X-TASK:
 
 //  Shunday function yozing, uni object va string parapetrlari bolsin. Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
 //  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
 
-function countOccurrences(obj: { [key: string]: any }, key: string): number {
-  let count = 0; // Буюм ичидаги қайтарилган сўзларни санаш учун.
+// function countOccurrences(obj: { [key: string]: any }, key: string): number {
+//   let count = 0; // Буюм ичидаги қайтарилган сўзларни санаш учун.
 
-  // Рекурсив қидирув функцияси
-  function recursiveSearch(currentObj: { [key: string]: any }): void {
-      for (const prop in currentObj) {
-          if (prop === key) {
-              count++; // Агар калит топилса, саноқни ошир.
-          }
-          if (typeof currentObj[prop] === 'object' && currentObj[prop] !== null) {
-              recursiveSearch(currentObj[prop]); // Агар қиймат объект бўлса, яна қидирувга кир.
-          }
-      }
-  }
+//   // Рекурсив қидирув функцияси
+//   function recursiveSearch(currentObj: { [key: string]: any }): void {
+//       for (const prop in currentObj) {
+//           if (prop === key) {
+//               count++; // Агар калит топилса, саноқни ошир.
+//           }
+//           if (typeof currentObj[prop] === 'object' && currentObj[prop] !== null) {
+//               recursiveSearch(currentObj[prop]); // Агар қиймат объект бўлса, яна қидирувга кир.
+//           }
+//       }
+//   }
 
-  recursiveSearch(obj); // Бошланғич объектдан қидирувни бошлаш.
-  return count; // Умумий саноқни қайтариш.
-}
+//   recursiveSearch(obj); // Бошланғич объектдан қидирувни бошлаш.
+//   return count; // Умумий саноқни қайтариш.
+// }
 
-// Мисол учун:
-const obj = {
-  model: 'Bugatti',
-  steer: {
-      model: 'HANKOOK',
-      size: 30
-  }
-};
+// // Мисол учун:
+// const obj = {
+//   model: 'Bugatti',
+//   steer: {
+//       model: 'HANKOOK',
+//       size: 30
+//   }
+// };
 
-console.log(countOccurrences(obj, 'model')); // Натижа: 2
+// console.log(countOccurrences(obj, 'model')); // Натижа: 2
 
 
 // ====================================================================================
