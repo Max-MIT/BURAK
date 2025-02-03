@@ -34,18 +34,45 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// TASK Z
+
+// Shunday function yozing. Bu function sonlardan iborat array
+// qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+// sonlarni topib ularni yig'disini qaytarsin.
+
+// MASALAN:
+// sumEvens([1, 2, 3]); return 2;
+// sumEvens([1, 2, 3, 2]); return 4;
+
+// Yuqoridagi misolda, bizning funktsiya
+// berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+// sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+
+function sumEvens(arr: number[]): number {
+  return arr
+      .filter((num: number) => num % 2 === 0) // Juft sonlarni tanlaymiz
+      .reduce((sum: number, num: number) => sum + num, 0); // Ularning yig‘indisini topamiz
+}
+
+// Test qilish
+console.log(sumEvens([1, 2, 3])); // 2
+console.log(sumEvens([1, 2, 3, 2])); // 4
+console.log(sumEvens([5, 7, 9])); // 0 (juft son yo‘q)
+console.log(sumEvens([10, 20, 30])); // 60
+
+// ==================================================================================
 // Y-TASK:
 
 //  Shunday function yozing, uni 2 ta array parapetri bolsin. Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
 //  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
 
-function findIntersection<T>(array1: T[], array2: T[]): T[] {
-  return array1.filter(value => array2.includes(value));
-}
+// function findIntersection<T>(array1: T[], array2: T[]): T[] {
+//   return array1.filter(value => array2.includes(value));
+// }
 
-// Example usage:
-const result = findIntersection([1, 2, 3], [3, 2, 0]);
-console.log(result); // Output: [2, 3]
+// // Example usage:
+// const result = findIntersection([1, 2, 3], [3, 2, 0]);
+// console.log(result); // Output: [2, 3]
 
 // ==========================================================================
 // X-TASK:
