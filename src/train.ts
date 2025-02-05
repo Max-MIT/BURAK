@@ -34,6 +34,23 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZA-TASK:
+
+// Shunday function yozing, u array ichidagi objectlarni “age” qiymati boyicha sortlab bersin. 
+// MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
+
+function sortByAge(arr: { age: number }[]): { age: number }[] {
+  return arr.sort((a, b) => a.age - b.age);
+}
+
+// Test qilish
+console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]));
+// Natija: [{ age: 13 }, { age: 21 }, { age: 23 }]
+
+console.log(sortByAge([{ age: 40 }, { age: 18 }, { age: 25 }, { age: 30 }]));
+// Natija: [{ age: 18 }, { age: 25 }, { age: 30 }, { age: 40 }]
+
+// =============================================================================
 // TASK Z
 
 // Shunday function yozing. Bu function sonlardan iborat array
