@@ -7,7 +7,7 @@
      css => SNAKE                           button_style
 - Error handling
 
-*/    
+*/
 
 /* Request:
  Traditinal Api
@@ -15,7 +15,6 @@
  GrapHQL Api
  ...
  */
-
 
 /* Frontend Development:
 Traditional Frontend Developent (FD) => BSSR (BURAK Admin) => EJS
@@ -25,7 +24,7 @@ Modern Frontend Developent (FD)      => SPA  (Users application) => REACT
 /* Cookies:
 request jola
 self destroy
-*/ 
+*/
 
 /* VALIDATION:
     1) CLIENT VALIDATION (Frontend) 
@@ -34,26 +33,45 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZD-TASK:
 
+// Shunday function yozing, uni number, array va number parametrlari bolsin va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+
+function changeNumberInArray(
+  number: number,
+  array: number[],
+  newValue: number
+): number[] {
+  const index = array.indexOf(number);
+  if (index !== -1) {
+    array[index] = newValue;
+  }
+  return array;
+}
+
+// Sinov
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // [2, 3, 7, 2]
+
+// ==============================================================================
 // ZC-TASK:
 
 // Shunday function yozing, uni number parametri bolsin va function qabul parametrni selsiy miqdori sifatida qabul qilib uni farenhitga ozgartirib bersin
 // MASALAN: celsiusToFahrenheit(0) return 32
 
-function celsiusToFahrenheit(number: number): number {
-  return (number * 9/5) + 32;
-}
+// function celsiusToFahrenheit(number: number): number {
+//   return (number * 9/5) + 32;
+// }
 
-// Sinov uchun
-console.log(celsiusToFahrenheit(0));   // 32
-console.log(celsiusToFahrenheit(100)); // 212
-console.log(celsiusToFahrenheit(-40)); // -40
-
+// // Sinov uchun
+// console.log(celsiusToFahrenheit(0));   // 32
+// console.log(celsiusToFahrenheit(100)); // 212
+// console.log(celsiusToFahrenheit(-40)); // -40
 
 // ==============================================================================
 // ZA-TASK:
 
-// Shunday function yozing, u array ichidagi objectlarni “age” qiymati boyicha sortlab bersin. 
+// Shunday function yozing, u array ichidagi objectlarni “age” qiymati boyicha sortlab bersin.
 // MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
 
 // function sortByAge(arr: { age: number }[]): { age: number }[] {
@@ -84,8 +102,8 @@ console.log(celsiusToFahrenheit(-40)); // -40
 
 function sumEvens(arr: number[]): number {
   return arr
-      .filter((num: number) => num % 2 === 0) // Juft sonlarni tanlaymiz
-      .reduce((sum: number, num: number) => sum + num, 0); // Ularning yig‘indisini topamiz
+    .filter((num: number) => num % 2 === 0) // Juft sonlarni tanlaymiz
+    .reduce((sum: number, num: number) => sum + num, 0); // Ularning yig‘indisini topamiz
 }
 
 // Test qilish
@@ -144,7 +162,6 @@ console.log(sumEvens([10, 20, 30])); // 60
 
 // console.log(countOccurrences(obj, 'model')); // Натижа: 2
 
-
 // ====================================================================================
 // W-TASK:
 
@@ -165,14 +182,13 @@ console.log(sumEvens([10, 20, 30])); // 60
 // const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
 // console.log(result); // Natija: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
 
-
 // ================================================================================
 // TASK V
 
 // Shunday function yozing, uni string parametri bo'lsin.
 // Va bu function stringdagi har bir harfni o'zi bilan
 // necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
-  
+
 // MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 
 // Yuqoridagi misolda, 'hello' so'zi tarkibida
@@ -181,7 +197,7 @@ console.log(sumEvens([10, 20, 30])); // 60
 
 // function countChars(input: string): Record<string, number> {
 //     const charCount: Record<string, number> = {};
-  
+
 //     for (const char of input) {
 //       if (char in charCount) {
 //         charCount[char]++;
@@ -189,15 +205,13 @@ console.log(sumEvens([10, 20, 30])); // 60
 //         charCount[char] = 1;
 //       }
 //     }
-  
+
 //     return charCount;
 //   }
-  
+
 //   // Test qilish
 //   const result = countChars("hello");
 //   console.log(result); // Natija: { h: 1, e: 1, l: 2, o: 1 }
-  
-
 
 // =============================================================================================================
 // U-TASK:
@@ -245,13 +259,11 @@ console.log(sumEvens([10, 20, 30])); // 60
 // const result = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
 // console.log(result); // [0, 3, 4, 4, 6, 30, 31]
 
-
 // ===============================================================================================
 // S-TASK:
 
 // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
 // MASALAN: missingNumber([3, 0, 1]) return 2
-
 
 // function missingNumber(nums: number[]): number {
 //   // Вычисляем длину массива
@@ -271,8 +283,6 @@ console.log(sumEvens([10, 20, 30])); // 60
 // const result = missingNumber([3, 0, 1]); // Ожидается 2
 // console.log(result); // Вывод: 2
 
-
-
 // TASK R
 
 // Shunday function yozing, u string parametrga ega bo'lsin.
@@ -281,7 +291,6 @@ console.log(sumEvens([10, 20, 30])); // 60
 
 // MASALAN: calculate("1 + 3"); return 4;
 // 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
-
 
 // function calculate(expression: string): number {
 //   const parts = expression.split(' ').filter(Boolean);
@@ -321,7 +330,6 @@ console.log(sumEvens([10, 20, 30])); // 60
 // console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
 // console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
 
-
 // P-TASK:
 
 // Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
@@ -345,7 +353,6 @@ console.log(sumEvens([10, 20, 30])); // 60
 // const anotherResult = objectToArray({ name: "John", age: 30 });
 // console.log(anotherResult); // [['name', 'John'], ['age', 30]]
 
-
 // ==================================================================================
 
 // O-TASK:
@@ -368,8 +375,7 @@ console.log(sumEvens([10, 20, 30])); // 60
 // const resultCalculateSum = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
 // console.log(resultCalculateSum); // Natija: 45
 
-
-// N-TASK: 
+// N-TASK:
 
 // Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
 // MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
@@ -384,8 +390,7 @@ console.log(sumEvens([10, 20, 30])); // 60
 // console.log(palindromCheck("dad")); // true
 // console.log(palindromCheck("son")); // false
 
-
-// M-TASK: 
+// M-TASK:
 
 // Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
 // MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
@@ -398,7 +403,7 @@ console.log(sumEvens([10, 20, 30])); // 60
 // const result = getSquareNumbers([1, 2, 3]);
 // console.log(result);
 
-// L-TASK: 
+// L-TASK:
 
 // Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 // MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
@@ -427,8 +432,7 @@ console.log(sumEvens([10, 20, 30])); // 60
 // const result = reverseSentence("we like coding");
 // console.log(result);  // Output: "ew ekil gnidoc"
 
-
-// K-TASK: 
+// K-TASK:
 
 // Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 // MASALAN: countVowels("string") return 1;
@@ -437,26 +441,25 @@ console.log(sumEvens([10, 20, 30])); // 60
 //      // Unli harflar ro'yxati
 //      const vowels = "aeiouAEIOU";
 //      let count = 0;
- 
+
 //      // Stringni harfma-harf tekshiramiz
 //      for (const char of str) {
 //          if (vowels.includes(char)) {
 //              count++;
 //          }
 //      }
- 
+
 //      return count;
 //  }
- 
+
 //  // Misol uchun:
 //  console.log(countVowels("string")); // Natija: 1
 //  console.log(countVowels("Hello World")); // Natija: 3
- 
+
 //==========================================================================//
-//  J-TASK: 
+//  J-TASK:
 //  Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
 //  MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
- 
 
 //  function findLongestWordAlt(sentence: string): string {
 //     // Stringни бўшлиқ бўйича бўлиб, reduce орқали энг узун сўзни топамиз
@@ -468,11 +471,11 @@ console.log(sumEvens([10, 20, 30])); // 60
 // console.log(findLongestWordAlt("I come from Uzbekistan")); // Натижа: "Uzbekistan"
 //==========================================================================//
 
- //  I-TASK:
+//  I-TASK:
 
 //  Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
 //  MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
- 
+
 //  function majorityElement(arr: number[]): number | null {
 //   if (arr.length === 0) return null;
 
@@ -501,25 +504,19 @@ console.log(sumEvens([10, 20, 30])); // 60
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // Natija: 4
 //==========================================================================//
 
-
-
-// H2-TASK: 
+// H2-TASK:
 
 // Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 // MASALAN: getDigits("m14i1t") return qiladi "141"   ts
 
-
 // function getDigits(input: string): string {
 //     return input.replace(/\D/g, ""); // \D bu "digit emas" degani, uni bo'sh joy bilan almashtiramiz
 //   }
-  
+
 //   // Sinov
 //   console.log(getDigits("m14i1t")); // "141"
 //   console.log(getDigits("abc123xyz456")); // "123456"
 //   console.log(getDigits("no-digits")); // ""
-  
-
-
 
 // // console.log("Hello World!");
 
