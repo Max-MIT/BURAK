@@ -33,25 +33,42 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZE-TASK:
+
+// Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+// MASALAN: removeDuplicate('stringg') return 'string'
+const removeDuplicate = (input: string): string => {
+  let result = '';
+  for (let char of input) {
+    if (!result.includes(char)) {
+      result += char;
+    }
+  }
+  return result;
+};
+
+console.log(removeDuplicate('stringg')); // "string"
+
+// =============================================================================
 // ZD-TASK:
 
 // Shunday function yozing, uni number, array va number parametrlari bolsin va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
 // MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
 
-function changeNumberInArray(
-  number: number,
-  array: number[],
-  newValue: number
-): number[] {
-  const index = array.indexOf(number);
-  if (index !== -1) {
-    array[index] = newValue;
-  }
-  return array;
-}
+// function changeNumberInArray(
+//   number: number,
+//   array: number[],
+//   newValue: number
+// ): number[] {
+//   const index = array.indexOf(number);
+//   if (index !== -1) {
+//     array[index] = newValue;
+//   }
+//   return array;
+// }
 
-// Sinov
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // [2, 3, 7, 2]
+// // Sinov
+// console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // [2, 3, 7, 2]
 
 // ==============================================================================
 // ZC-TASK:
@@ -100,17 +117,17 @@ console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // [2, 3, 7, 2]
 // berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
 // sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
 
-function sumEvens(arr: number[]): number {
-  return arr
-    .filter((num: number) => num % 2 === 0) // Juft sonlarni tanlaymiz
-    .reduce((sum: number, num: number) => sum + num, 0); // Ularning yig‘indisini topamiz
-}
+// function sumEvens(arr: number[]): number {
+//   return arr
+//     .filter((num: number) => num % 2 === 0) // Juft sonlarni tanlaymiz
+//     .reduce((sum: number, num: number) => sum + num, 0); // Ularning yig‘indisini topamiz
+// }
 
-// Test qilish
-console.log(sumEvens([1, 2, 3])); // 2
-console.log(sumEvens([1, 2, 3, 2])); // 4
-console.log(sumEvens([5, 7, 9])); // 0 (juft son yo‘q)
-console.log(sumEvens([10, 20, 30])); // 60
+// // Test qilish
+// console.log(sumEvens([1, 2, 3])); // 2
+// console.log(sumEvens([1, 2, 3, 2])); // 4
+// console.log(sumEvens([5, 7, 9])); // 0 (juft son yo‘q)
+// console.log(sumEvens([10, 20, 30])); // 60
 
 // ==================================================================================
 // Y-TASK:
