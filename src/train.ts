@@ -33,21 +33,41 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZF-TASK:
+
+// Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+function capitalizeWords(sentence: string): string {
+  return sentence
+    .split(" ")
+    .map(word => (word.length > 2 ? word.charAt(0).toUpperCase() + word.slice(1) : word))
+    .join(" ");
+}
+
+// Test
+console.log(capitalizeWords("name should be a string")); // 'Name Should be a String'
+console.log(capitalizeWords("i am happy")); // 'i Am Happy'
+console.log(capitalizeWords("a big apple")); // 'a Big Apple'
+
+
+
+// ==============================================================================
 // ZE-TASK:
 
 // Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
 // MASALAN: removeDuplicate('stringg') return 'string'
-const removeDuplicate = (input: string): string => {
-  let result = '';
-  for (let char of input) {
-    if (!result.includes(char)) {
-      result += char;
-    }
-  }
-  return result;
-};
+// const removeDuplicate = (input: string): string => {
+//   let result = '';
+//   for (let char of input) {
+//     if (!result.includes(char)) {
+//       result += char;
+//     }
+//   }
+//   return result;
+// };
 
-console.log(removeDuplicate('stringg')); // "string"
+// console.log(removeDuplicate('stringg')); // "string"
 
 // =============================================================================
 // ZD-TASK:
