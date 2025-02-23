@@ -33,22 +33,39 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+
+
+// ZG-TASK:
+
+// Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+// MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+
+function toSnakeCase(sentence: string): string {
+  return sentence.toLowerCase().split(" ").join("_");
+}
+
+// Test
+console.log(toSnakeCase("name should be a string")); // 'name_should_be_a_string'
+console.log(toSnakeCase("Hello World")); // 'hello_world'
+console.log(toSnakeCase("This is a Test")); // 'this_is_a_test'
+
+// ======================================================================================
 // ZF-TASK:
 
 // Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
 // MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
 
-function capitalizeWords(sentence: string): string {
-  return sentence
-    .split(" ")
-    .map(word => (word.length > 2 ? word.charAt(0).toUpperCase() + word.slice(1) : word))
-    .join(" ");
-}
+// function capitalizeWords(sentence: string): string {
+//   return sentence
+//     .split(" ")
+//     .map(word => (word.length > 2 ? word.charAt(0).toUpperCase() + word.slice(1) : word))
+//     .join(" ");
+// }
 
-// Test
-console.log(capitalizeWords("name should be a string")); // 'Name Should be a String'
-console.log(capitalizeWords("i am happy")); // 'i Am Happy'
-console.log(capitalizeWords("a big apple")); // 'a Big Apple'
+// // Test
+// console.log(capitalizeWords("name should be a string")); // 'Name Should be a String'
+// console.log(capitalizeWords("i am happy")); // 'i Am Happy'
+// console.log(capitalizeWords("a big apple")); // 'a Big Apple'
 
 
 
