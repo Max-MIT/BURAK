@@ -33,21 +33,43 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZH-TASK:
 
+// Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+// MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 
+function findDisappearedNumbers(arr: number[]): number[] {
+  const maxNum = Math.max(...arr); // Eng katta sonni topamiz
+  const missingNumbers: number[] = [];
+
+  for (let i = 1; i < maxNum; i++) {
+    if (!arr.includes(i)) {
+      missingNumbers.push(i);
+    }
+  }
+
+  return missingNumbers;
+}
+
+// Test
+console.log(findDisappearedNumbers([1, 3, 4, 7])); // [2, 5, 6]
+console.log(findDisappearedNumbers([2, 5, 8])); // [1, 3, 4, 6, 7]
+console.log(findDisappearedNumbers([1, 2, 3, 4])); // []
+
+// ==================================================================================
 // ZG-TASK:
 
 // Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
 // MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
 
-function toSnakeCase(sentence: string): string {
-  return sentence.toLowerCase().split(" ").join("_");
-}
+// function toSnakeCase(sentence: string): string {
+//   return sentence.toLowerCase().split(" ").join("_");
+// }
 
-// Test
-console.log(toSnakeCase("name should be a string")); // 'name_should_be_a_string'
-console.log(toSnakeCase("Hello World")); // 'hello_world'
-console.log(toSnakeCase("This is a Test")); // 'this_is_a_test'
+// // Test
+// console.log(toSnakeCase("name should be a string")); // 'name_should_be_a_string'
+// console.log(toSnakeCase("Hello World")); // 'hello_world'
+// console.log(toSnakeCase("This is a Test")); // 'this_is_a_test'
 
 // ======================================================================================
 // ZF-TASK:
