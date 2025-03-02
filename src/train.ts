@@ -33,28 +33,46 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZI-TASK:
+
+// Shunday function yozing, u function ishga tushgandan 3 soniyadan keyin "Hello World" ni qaytarsin.
+// MASALAN: delayHelloWorld("Hello World") return "Hello World"
+
+function delayHelloWorld(message: string): Promise<string> {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+          resolve(message);
+      }, 3000);
+  });
+}
+
+// Ishlatish
+delayHelloWorld("Hello World").then(console.log);
+
+
+// =============================================================================
 // ZH-TASK:
 
 // Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
 // MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 
-function findDisappearedNumbers(arr: number[]): number[] {
-  const maxNum = Math.max(...arr); // Eng katta sonni topamiz
-  const missingNumbers: number[] = [];
+// function findDisappearedNumbers(arr: number[]): number[] {
+//   const maxNum = Math.max(...arr); // Eng katta sonni topamiz
+//   const missingNumbers: number[] = [];
 
-  for (let i = 1; i < maxNum; i++) {
-    if (!arr.includes(i)) {
-      missingNumbers.push(i);
-    }
-  }
+//   for (let i = 1; i < maxNum; i++) {
+//     if (!arr.includes(i)) {
+//       missingNumbers.push(i);
+//     }
+//   }
 
-  return missingNumbers;
-}
+//   return missingNumbers;
+// }
 
-// Test
-console.log(findDisappearedNumbers([1, 3, 4, 7])); // [2, 5, 6]
-console.log(findDisappearedNumbers([2, 5, 8])); // [1, 3, 4, 6, 7]
-console.log(findDisappearedNumbers([1, 2, 3, 4])); // []
+// // Test
+// console.log(findDisappearedNumbers([1, 3, 4, 7])); // [2, 5, 6]
+// console.log(findDisappearedNumbers([2, 5, 8])); // [1, 3, 4, 6, 7]
+// console.log(findDisappearedNumbers([1, 2, 3, 4])); // []
 
 // ==================================================================================
 // ZG-TASK:
