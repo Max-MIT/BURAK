@@ -33,21 +33,61 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+
+
+// TASK ZJ:
+
+// Shunday function yozing, u berilgan array ichidagi
+// raqamlarni qiymatini hisoblab qaytarsin.
+
+// MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
+
+// Yuqoridagi misolda, array nested bo'lgan holdatda ham,
+// bizning function ularning yig'indisini hisoblab qaytarmoqda.
+
+function reduceNestedArray(arr: unknown): number {
+  if (!Array.isArray(arr)) {
+      throw new Error("Input must be an array");
+  }
+
+  let sum = 0;
+  let stack: unknown[] = [...arr]; // Stack yaratamiz
+
+  while (stack.length > 0) {
+      const item = stack.pop();
+
+      if (typeof item === "number") {
+          sum += item; // Agar raqam bo‘lsa, yig‘indiga qo‘shamiz
+      } else if (Array.isArray(item)) {
+          stack.push(...item); // Agar array bo‘lsa, ichidagi elementlarni stackga qo‘shamiz
+      }
+  }
+
+  return sum;
+}
+
+// Sinovlar
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // 8
+console.log(reduceNestedArray([[1, 2], [3, [4, 5]]])); // 15
+console.log(reduceNestedArray([10, [20, [30, 40]], 50])); // 150
+console.log(reduceNestedArray([1, [2, [3, [4, [5]]]]])); // 15
+
+// ==============================================================================
 // ZI-TASK:
 
 // Shunday function yozing, u function ishga tushgandan 3 soniyadan keyin "Hello World" ni qaytarsin.
 // MASALAN: delayHelloWorld("Hello World") return "Hello World"
 
-function delayHelloWorld(message: string): Promise<string> {
-  return new Promise((resolve) => {
-      setTimeout(() => {
-          resolve(message);
-      }, 3000);
-  });
-}
+// function delayHelloWorld(message: string): Promise<string> {
+//   return new Promise((resolve) => {
+//       setTimeout(() => {
+//           resolve(message);
+//       }, 3000);
+//   });
+// }
 
-// Ishlatish
-delayHelloWorld("Hello World").then(console.log);
+// // Ishlatish
+// delayHelloWorld("Hello World").then(console.log);
 
 
 // =============================================================================
