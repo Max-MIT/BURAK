@@ -33,10 +33,26 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZK-TASK:
+
+// Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
+// MASALAN: printNumbers()
+
+function printNumbers() {
+    let num = 1;
+    const interval = setInterval(() => {
+        console.log(num);
+        num++;
+        if (num > 5) {
+            clearInterval(interval);
+        }
+    }, 1000);
+}
+
+printNumbers();
 
 
-// TASK ZJ:
-
+// ============================================================================
 // Shunday function yozing, u berilgan array ichidagi
 // raqamlarni qiymatini hisoblab qaytarsin.
 
@@ -45,32 +61,32 @@ self destroy
 // Yuqoridagi misolda, array nested bo'lgan holdatda ham,
 // bizning function ularning yig'indisini hisoblab qaytarmoqda.
 
-function reduceNestedArray(arr: unknown): number {
-  if (!Array.isArray(arr)) {
-      throw new Error("Input must be an array");
-  }
+// function reduceNestedArray(arr: unknown): number {
+//   if (!Array.isArray(arr)) {
+//       throw new Error("Input must be an array");
+//   }
 
-  let sum = 0;
-  let stack: unknown[] = [...arr]; // Stack yaratamiz
+//   let sum = 0;
+//   let stack: unknown[] = [...arr]; // Stack yaratamiz
 
-  while (stack.length > 0) {
-      const item = stack.pop();
+//   while (stack.length > 0) {
+//       const item = stack.pop();
 
-      if (typeof item === "number") {
-          sum += item; // Agar raqam bo‘lsa, yig‘indiga qo‘shamiz
-      } else if (Array.isArray(item)) {
-          stack.push(...item); // Agar array bo‘lsa, ichidagi elementlarni stackga qo‘shamiz
-      }
-  }
+//       if (typeof item === "number") {
+//           sum += item; // Agar raqam bo‘lsa, yig‘indiga qo‘shamiz
+//       } else if (Array.isArray(item)) {
+//           stack.push(...item); // Agar array bo‘lsa, ichidagi elementlarni stackga qo‘shamiz
+//       }
+//   }
 
-  return sum;
-}
+//   return sum;
+// }
 
-// Sinovlar
-console.log(reduceNestedArray([1, [1, 2, [4]]])); // 8
-console.log(reduceNestedArray([[1, 2], [3, [4, 5]]])); // 15
-console.log(reduceNestedArray([10, [20, [30, 40]], 50])); // 150
-console.log(reduceNestedArray([1, [2, [3, [4, [5]]]]])); // 15
+// // Sinovlar
+// console.log(reduceNestedArray([1, [1, 2, [4]]])); // 8
+// console.log(reduceNestedArray([[1, 2], [3, [4, 5]]])); // 15
+// console.log(reduceNestedArray([10, [20, [30, 40]], 50])); // 150
+// console.log(reduceNestedArray([1, [2, [3, [4, [5]]]]])); // 15
 
 // ==============================================================================
 // ZI-TASK:
