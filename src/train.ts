@@ -33,21 +33,43 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// TASK ZM:
+
+// Shunday function yozing, va bu function parametr
+// sifatida raqamlarni qabul qilsin. Bu function qabul qilingan
+// raqamlarni orqasiga o'girib qaytarsin
+
+// MASALAN: reverseInteger(123456789); return 987654321;
+
+// Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
+// o'girib (reverse) qilib qaytarmoqda.
+
+function reverseInteger(num: number): number {
+    return parseInt(num.toString().split('').reverse().join('')) * Math.sign(num);
+}
+
+// Test
+console.log(reverseInteger(123456789)); // 987654321
+console.log(reverseInteger(-123));      // -321
+console.log(reverseInteger(100));       // 1
+
+
+// =============================================================================
 // ZL-TASK:
 
 // Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
 // MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
 
-function stringToKebab(str: string): string {
-    return str
-        .toLowerCase() // Hammasini kichik harfga o'tkazish
-        .replace(/\s+/g, '-') // Bo'sh joylarni "-" bilan almashtirish
-        .replace(/[^a-z0-9\-]/g, ''); // Maxsus belgilarni olib tashlash
-}
+// function stringToKebab(str: string): string {
+//     return str
+//         .toLowerCase() // Hammasini kichik harfga o'tkazish
+//         .replace(/\s+/g, '-') // Bo'sh joylarni "-" bilan almashtirish
+//         .replace(/[^a-z0-9\-]/g, ''); // Maxsus belgilarni olib tashlash
+// }
 
-console.log(stringToKebab("I love Kebab")); // "i-love-kebab"
-console.log(stringToKebab("Hello World! 123")); // "hello-world-123"
-console.log(stringToKebab("TypeScript & JavaScript")); // "typescript-javascript"
+// console.log(stringToKebab("I love Kebab")); // "i-love-kebab"
+// console.log(stringToKebab("Hello World! 123")); // "hello-world-123"
+// console.log(stringToKebab("TypeScript & JavaScript")); // "typescript-javascript"
 
 // =============================================================================
 // ZK-TASK:
