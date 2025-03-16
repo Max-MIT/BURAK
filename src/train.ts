@@ -33,6 +33,24 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZN-TASK:
+
+// Shunday function yozing, uni array va number parametri bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
+// MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]
+
+function rotateArray(arr: number[], index: number): number[] {
+  if (!arr.length || index <= 0) {
+      return arr;
+  }
+  
+  index = index % arr.length;  // Agar index array uzunligidan katta bolsa
+  return [...arr.slice(-index), ...arr.slice(0, -index)];
+}
+
+// Test qilish
+console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));  // [5, 6, 1, 2, 3, 4]
+
+// =============================================================================
 // TASK ZM:
 
 // Shunday function yozing, va bu function parametr
@@ -44,14 +62,14 @@ self destroy
 // Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
 // o'girib (reverse) qilib qaytarmoqda.
 
-function reverseInteger(num: number): number {
-    return parseInt(num.toString().split('').reverse().join('')) * Math.sign(num);
-}
+// function reverseInteger(num: number): number {
+//     return parseInt(num.toString().split('').reverse().join('')) * Math.sign(num);
+// }
 
-// Test
-console.log(reverseInteger(123456789)); // 987654321
-console.log(reverseInteger(-123));      // -321
-console.log(reverseInteger(100));       // 1
+// // Test
+// console.log(reverseInteger(123456789)); // 987654321
+// console.log(reverseInteger(-123));      // -321
+// console.log(reverseInteger(100));       // 1
 
 
 // =============================================================================
