@@ -33,22 +33,45 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZO-TASK:
+
+// Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+function areParenthesesBalanced(input: string): boolean {
+  let count = 0;
+  for (const char of input) {
+      if (char === '(') count++;
+      else if (char === ')') {
+          if (count === 0) return false;
+          count--;
+      }
+  }
+  return count === 0;
+}
+
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
+console.log(areParenthesesBalanced("(())")); // true
+console.log(areParenthesesBalanced("(()")); // false
+console.log(areParenthesesBalanced("())(")); // false
+
+// =================================================================================
 // ZN-TASK:
 
 // Shunday function yozing, uni array va number parametri bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
 // MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]
 
-function rotateArray(arr: number[], index: number): number[] {
-  if (!arr.length || index <= 0) {
-      return arr;
-  }
+// function rotateArray(arr: number[], index: number): number[] {
+//   if (!arr.length || index <= 0) {
+//       return arr;
+//   }
   
-  index = index % arr.length;  // Agar index array uzunligidan katta bolsa
-  return [...arr.slice(-index), ...arr.slice(0, -index)];
-}
+//   index = index % arr.length;  // Agar index array uzunligidan katta bolsa
+//   return [...arr.slice(-index), ...arr.slice(0, -index)];
+// }
 
-// Test qilish
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));  // [5, 6, 1, 2, 3, 4]
+// // Test qilish
+// console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));  // [5, 6, 1, 2, 3, 4]
 
 // =============================================================================
 // TASK ZM:
