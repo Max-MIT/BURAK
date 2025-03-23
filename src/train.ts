@@ -33,27 +33,55 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// Shunday function yozing, u 2 ta array parametr qabul qilsin.
+// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini 
+// (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
+
+// MASALAN:
+// areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+// areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
+// areArraysEqual([1, 2, 3], [4, 1, 2]) // false
+
+function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+  const countElements = (arr: number[]) => {
+      return arr.reduce((acc, num) => {
+          acc[num] = (acc[num] || 0) + 1;
+          return acc;
+      }, {} as Record<number, number>);
+  };
+
+  const count1 = countElements(arr1);
+  const count2 = countElements(arr2);
+
+  return JSON.stringify(count1) === JSON.stringify(count2);
+}
+
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2])); // true
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1])); // true
+console.log(areArraysEqual([1, 2, 3], [4, 1, 2])); // false
+
+// ============================================================================
 // ZO-TASK:
 
 // Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 
-function areParenthesesBalanced(input: string): boolean {
-  let count = 0;
-  for (const char of input) {
-      if (char === '(') count++;
-      else if (char === ')') {
-          if (count === 0) return false;
-          count--;
-      }
-  }
-  return count === 0;
-}
+// function areParenthesesBalanced(input: string): boolean {
+//   let count = 0;
+//   for (const char of input) {
+//       if (char === '(') count++;
+//       else if (char === ')') {
+//           if (count === 0) return false;
+//           count--;
+//       }
+//   }
+//   return count === 0;
+// }
 
-console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
-console.log(areParenthesesBalanced("(())")); // true
-console.log(areParenthesesBalanced("(()")); // false
-console.log(areParenthesesBalanced("())(")); // false
+// console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
+// console.log(areParenthesesBalanced("(())")); // true
+// console.log(areParenthesesBalanced("(()")); // false
+// console.log(areParenthesesBalanced("())(")); // false
 
 // =================================================================================
 // ZN-TASK:
