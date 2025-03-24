@@ -33,6 +33,27 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZQ-TASK:
+
+// Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+
+function findDuplicates(arr: number[]): number[] {
+  const count: Record<number, number> = {};
+  
+  for (const num of arr) {
+      count[num] = (count[num] || 0) + 1;
+  }
+  
+  return Object.keys(count)
+      .map(Number)
+      .filter(num => count[num] === 2);
+}
+
+// Test
+console.log(findDuplicates([1,2,3,4,5,4,3,4]));  // [3, 4]
+// ==============================================================================
+// ZP-TASK
 // Shunday function yozing, u 2 ta array parametr qabul qilsin.
 // Siz bu ikki arrayning qiymatlari o'xshash bo'lishini 
 // (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
@@ -42,23 +63,23 @@ self destroy
 // areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
 // areArraysEqual([1, 2, 3], [4, 1, 2]) // false
 
-function areArraysEqual(arr1: number[], arr2: number[]): boolean {
-  const countElements = (arr: number[]) => {
-      return arr.reduce((acc, num) => {
-          acc[num] = (acc[num] || 0) + 1;
-          return acc;
-      }, {} as Record<number, number>);
-  };
+// function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+//   const countElements = (arr: number[]) => {
+//       return arr.reduce((acc, num) => {
+//           acc[num] = (acc[num] || 0) + 1;
+//           return acc;
+//       }, {} as Record<number, number>);
+//   };
 
-  const count1 = countElements(arr1);
-  const count2 = countElements(arr2);
+//   const count1 = countElements(arr1);
+//   const count2 = countElements(arr2);
 
-  return JSON.stringify(count1) === JSON.stringify(count2);
-}
+//   return JSON.stringify(count1) === JSON.stringify(count2);
+// }
 
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2])); // true
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1])); // true
-console.log(areArraysEqual([1, 2, 3], [4, 1, 2])); // false
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2])); // true
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1])); // true
+// console.log(areArraysEqual([1, 2, 3], [4, 1, 2])); // false
 
 // ============================================================================
 // ZO-TASK:
