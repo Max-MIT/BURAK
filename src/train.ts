@@ -33,25 +33,49 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZR-TASK:
+
+// Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+// MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+
+function countNumberAndLetters(str: string): { number: number, letter: number } {
+  let numberCount = 0;
+  let letterCount = 0;
+  
+  for (const char of str) {
+      if (/[0-9]/.test(char)) {
+          numberCount++;
+      } else if (/[a-zA-Z]/.test(char)) {
+          letterCount++;
+      }
+  }
+  
+  return { number: numberCount, letter: letterCount };
+}
+
+// Test
+console.log(countNumberAndLetters("string152%\¥")); // { number: 3, letter: 6 }
+
+// ============================================================================
 // ZQ-TASK:
 
 // Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
 // MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
 
-function findDuplicates(arr: number[]): number[] {
-  const count: Record<number, number> = {};
+// function findDuplicates(arr: number[]): number[] {
+//   const count: Record<number, number> = {};
   
-  for (const num of arr) {
-      count[num] = (count[num] || 0) + 1;
-  }
+//   for (const num of arr) {
+//       count[num] = (count[num] || 0) + 1;
+//   }
   
-  return Object.keys(count)
-      .map(Number)
-      .filter(num => count[num] === 2);
-}
+//   return Object.keys(count)
+//       .map(Number)
+//       .filter(num => count[num] === 2);
+// }
 
-// Test
-console.log(findDuplicates([1,2,3,4,5,4,3,4]));  // [3, 4]
+// // Test
+// console.log(findDuplicates([1,2,3,4,5,4,3,4]));  // [3, 4]
 // ==============================================================================
 // ZP-TASK
 // Shunday function yozing, u 2 ta array parametr qabul qilsin.
