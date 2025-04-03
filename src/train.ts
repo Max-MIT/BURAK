@@ -33,28 +33,44 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZS-TASK:
+
+// Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+// MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
+
+function singleNumber(nums: number[]): number {
+  let result = 0;
+  for (let num of nums) {
+      result ^= num; // XOR har bir element bilan
+  }
+  return result;
+}
+
+console.log(singleNumber([4, 2, 1, 2, 1])); // Output: 4
+
+// ===============================================================================
 // ZR-TASK:
 
 // Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
 // MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
 
-function countNumberAndLetters(str: string): { number: number, letter: number } {
-  let numberCount = 0;
-  let letterCount = 0;
+// function countNumberAndLetters(str: string): { number: number, letter: number } {
+//   let numberCount = 0;
+//   let letterCount = 0;
   
-  for (const char of str) {
-      if (/[0-9]/.test(char)) {
-          numberCount++;
-      } else if (/[a-zA-Z]/.test(char)) {
-          letterCount++;
-      }
-  }
+//   for (const char of str) {
+//       if (/[0-9]/.test(char)) {
+//           numberCount++;
+//       } else if (/[a-zA-Z]/.test(char)) {
+//           letterCount++;
+//       }
+//   }
   
-  return { number: numberCount, letter: letterCount };
-}
+//   return { number: numberCount, letter: letterCount };
+// }
 
-// Test
-console.log(countNumberAndLetters("string152%\¥")); // { number: 3, letter: 6 }
+// // Test
+// console.log(countNumberAndLetters("string152%\¥")); // { number: 3, letter: 6 }
 
 // ============================================================================
 // ZQ-TASK:
