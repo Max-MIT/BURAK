@@ -33,20 +33,45 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZT-TASK:
+
+// Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+// MASALAN: firstUniqueCharIndex(“stamp”) return 0
+
+function firstUniqueCharIndex(str: string): number {
+  const charCount: Record<string, number> = {};
+
+  for (const char of str) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    if (charCount[str[i]] === 1) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+// Примеры
+console.log(firstUniqueCharIndex("stamp"));      // 0
+
+// ============================================================================
 // ZS-TASK:
 
 // Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
 // MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
 
-function singleNumber(nums: number[]): number {
-  let result = 0;
-  for (let num of nums) {
-      result ^= num; // XOR har bir element bilan
-  }
-  return result;
-}
+// function singleNumber(nums: number[]): number {
+//   let result = 0;
+//   for (let num of nums) {
+//       result ^= num; // XOR har bir element bilan
+//   }
+//   return result;
+// }
 
-console.log(singleNumber([4, 2, 1, 2, 1])); // Output: 4
+// console.log(singleNumber([4, 2, 1, 2, 1])); // Output: 4
 
 // ===============================================================================
 // ZR-TASK:
