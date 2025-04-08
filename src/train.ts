@@ -33,29 +33,56 @@ self destroy
     4) SCHEMA VALIDATION (DB)
 */
 //==========================================================================//
+// ZU-TASK:
+
+// Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+// MASALAN: sumOfUnique([1,2,3,2]) return 4
+
+function sumOfUnique(nums: number[]): number {
+  const countMap: Record<number, number> = {};
+
+  for (const num of nums) {
+      countMap[num] = (countMap[num] || 0) + 1;
+  }
+
+  let sum = 0;
+  for (const num of nums) {
+      if (countMap[num] === 1) {
+          sum += num;
+      }
+  }
+
+  return sum;
+}
+
+// Misol:
+console.log(sumOfUnique([1, 2, 3, 2])); // Natija: 4
+
+
+// ===============================================================================
 // ZT-TASK:
 
 // Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
 // MASALAN: firstUniqueCharIndex(“stamp”) return 0
 
-function firstUniqueCharIndex(str: string): number {
-  const charCount: Record<string, number> = {};
+// function firstUniqueCharIndex(str: string): number {
+//   const charCount: Record<string, number> = {};
 
-  for (const char of str) {
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
+//   for (const char of str) {
+//     charCount[char] = (charCount[char] || 0) + 1;
+//   }
 
-  for (let i = 0; i < str.length; i++) {
-    if (charCount[str[i]] === 1) {
-      return i;
-    }
-  }
+//   for (let i = 0; i < str.length; i++) {
+//     if (charCount[str[i]] === 1) {
+//       return i;
+//     }
+//   }
 
-  return -1;
-}
+//   return -1;
+// }
 
-// Примеры
-console.log(firstUniqueCharIndex("stamp"));      // 0
+// // Примеры
+// console.log(firstUniqueCharIndex("stamp"));      // 0
 
 // ============================================================================
 // ZS-TASK:
